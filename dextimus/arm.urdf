@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<robot name="simple_arm">
+
+  <!-- Base Link -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.1585" radius="0.075"/>
+      </geometry>
+	  <origin xyz="0 0 0.07925"/>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+  
+  <!-- Arm Link_1 -->
+  <link name="link_1">
+    <visual>
+      <geometry>
+        <cylinder length="0.15" radius="0.07"/>
+      </geometry>
+      <origin xyz="0 0 0.075"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Joint 1: Base to Link_1 -->
+  <joint name="joint_1" type="revolute">
+    <parent link="base_link"/>
+    <child link="link_1"/>
+    <origin xyz="0 0 0.1585" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="1.0"/>
+  </joint>
+  
+  <!-- Arm Link_2 -->
+  <link name="link_2">
+    <visual>
+      <geometry>
+        <cylinder length="0.331" radius="0.05"/>
+      </geometry>
+      <origin xyz="0 0 0.1655" rpy="0 0 0"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Joint 2: Base to Link_2 -->
+  <joint name="joint_2" type="revolute">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <origin xyz="0 0 0.15" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="1.0"/>
+  </joint>
+  
+  <!-- Arm Link_3 -->
+  <link name="link_3">
+    <visual>
+      <geometry>
+        <cylinder length="0.1695" radius="0.05"/>
+      </geometry>
+      <origin xyz="0 0 0.08475" rpy="0 0 0"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Joint 3: Base to Link_3 -->
+  <joint name="joint_3" type="fixed">
+    <parent link="link_2"/>
+    <child link="link_3"/>
+    <origin xyz="0 0 0.331" rpy="1.57 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="1.0"/>
+  </joint>
+  
+  <!-- Arm Link_4 -->
+  <link name="link_4">
+    <visual>
+      <geometry>
+        <cylinder length="0.134" radius="0.07"/>
+      </geometry>
+      <origin xyz="0 0 0.067" rpy="0 0 0"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Joint 4: Base to Link_4 -->
+  <joint name="joint_4" type="revolute">
+    <parent link="link_3"/>
+    <child link="link_4"/>
+    <origin xyz="0 0 0.1695" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="1.0"/>
+  </joint>
+  
+  <!-- Arm Link_5 -->
+  <link name="link_5">
+    <visual>
+      <geometry>
+        <cylinder length="0.402" radius="0.05"/>
+      </geometry>
+      <origin xyz="0 0 0.201" rpy="0 0 0"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Joint 5: Base to Link_5 -->
+  <joint name="joint_5" type="revolute">
+    <parent link="link_4"/>
+    <child link="link_5"/>
+    <origin xyz="0 0 0.134" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="1.0"/>
+  </joint>
+  
+  <!-- Arm Link_6 -->
+  <link name="link_6">
+    <visual>
+      <geometry>
+        <cylinder length="0.131" radius="0.07"/>
+      </geometry>
+      <origin xyz="0 0 0.0655" rpy="0 0 0"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Joint 6: Base to Link_6 -->
+  <joint name="joint_6" type="revolute">
+    <parent link="link_5"/>
+    <child link="link_6"/>
+    <origin xyz="0 0 0.402" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="1.0"/>
+  </joint>
+  
+  <!-- Arm End-Effector -->
+  <link name="link_7">
+    <visual>
+      <geometry>
+        <box size="0.06 0.06 0.167"/>
+      </geometry>
+      <origin xyz="0 0 0.0835" rpy="0 0 0"/>
+      <material name="blue">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Joint 7: Base to Link_7 -->
+  <joint name="joint_7" type="revolute">
+    <parent link="link_6"/>
+    <child link="link_7"/>
+    <origin xyz="0 0 0.131" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="1.0"/>
+  </joint>
+  
+
+  
+
+</robot>
